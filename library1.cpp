@@ -12,7 +12,7 @@ cin>>id1;
 cin.ignore();
 cout<<"Ente Book 1 title:";
 getline (cin,title1);
-cout<<"Enter Book id2:"
+cout<<"Enter Book id2:";
 cin>>id2;
 cin.ignore();
 cout<<"Enter Book 2 title;";
