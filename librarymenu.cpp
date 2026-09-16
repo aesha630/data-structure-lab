@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main()
@@ -19,64 +19,83 @@ int main()
         cout << "\nEnter your choice: ";
         cin >> choice;
 
-        if(choice == 1)
+        switch (choice)
         {
-            cout << "Enter BookID: ";
-            cin >> book[n];
-
-            n++;
-
-            cout << "Book Added!";
-        }
-
-        else if(choice == 2)
-        {
-            cout << "\nBooks in Library:\n";
-
-            for(int i = 0; i < n; i++)
-            {
-                cout << book[i] << endl;
-            }
-        }
-
-        else if(choice == 3)
-        {
-            cout << "Enter Book ID to search: ";
-            cin >> searchID;
-
-            bool found = false;
-
-            for(int i = 0; i < n; i++)
-            {
-                if(book[i] == searchID)
+            case 1:
+                if (n >= 10)
                 {
-                    found = true;
-                    break;
+                    cout << "\nLibrary is full! Cannot add more books.";
                 }
-            }
+                else
+                {
+                    cout << "\nEnter Book ID: ";
+                    cin >> book[n];
 
-            if(found)
-            {
-                cout << "Book Found!";
-            }
-            else
-            {
-                cout << "Book Not Found!";
-            }
+                    n++;
+
+                    cout << "Book Added Successfully!";
+                }
+                break;
+
+            case 2:
+                if (n == 0)
+                {
+                    cout << "\nNo books in the library.";
+                }
+                else
+                {
+                    cout << "\n\nBooks in Library:\n";
+
+                    for (int i = 0; i < n; i++)
+                    {
+                        cout << "Book " << i + 1
+                             << " - ID: " << book[i] << endl;
+                    }
+                }
+                break;
+
+            case 3:
+                if (n == 0)
+                {
+                    cout << "\nNo books available to search.";
+                }
+                else
+                {
+                    cout << "\nEnter Book ID to search: ";
+                    cin >> searchID;
+
+                    bool found = false;
+
+                    for (int i = 0; i < n; i++)
+                    {
+                        if (book[i] == searchID)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (found)
+                    {
+                        cout << "Book Found!";
+                    }
+                    else
+                    {
+                        cout << "Book Not Found!";
+                    }
+                }
+                break;
+
+            case 4:
+                cout << "\nThank you for using Smart Library!";
+                break;
+
+            default:
+                cout << "\nInvalid Choice! Please try again.";
         }
 
-        else if(choice == 4)
-        {
-            cout << "Thank you!";
-        }
-
-        else
-        {
-            cout << "Invalid Choice!";
-        }
-
-    }
-    while(choice != 4);
+    } while (choice != 4);
 
     return 0;
 }
+
